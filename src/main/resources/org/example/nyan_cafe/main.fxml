@@ -11,6 +11,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <StackPane fx:id="paneRoot" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.nyan_cafe.AppController">
 
@@ -124,18 +126,32 @@
                 <Image url="@media/page_cooking/header_text.png" />
             </ImageView>
         </VBox>
-      <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
-         <children>
+        <VBox alignment="CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
+              prefHeight="700.0" prefWidth="650.0">
             <ImageView fitHeight="250.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@media/page_cooking/oia_uia.gif" />
-               </image>
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
+                <VBox.margin>
+                    <Insets top="50.0"/>
+                </VBox.margin>
+                <Image url="@media/page_cooking/oia_uia.gif"/>
             </ImageView>
-         </children>
-      </VBox>
+        </VBox>
+        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
+              prefHeight="700.0" prefWidth="650.0">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <padding>
+                <Insets bottom="50.0"/>
+            </padding>
+            <Text fx:id="textCookingTimeLeft" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 128;" text="3:00" textAlignment="CENTER">
+                <VBox.margin>
+                    <Insets/>
+                </VBox.margin>
+                <font>
+                    <Font name="Pixelify Sans Regular" size="12.218181610107422"/>
+                </font>
+            </Text>
+        </VBox>
     </Pane>
 
     <!-- Window Controls -->

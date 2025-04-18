@@ -1,9 +1,8 @@
 package org.example.nyan_cafe;
 
-import javafx.animation.ScaleTransition;
-import javafx.animation.SequentialTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -14,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -71,7 +71,7 @@ public class AppController {
     }
 
     private void playClickSound() {
-        Media sound = new Media(getClass().getResource("media/sound_click.mp3").toExternalForm());
+        Media sound = new Media(getClass().getResource("media/audio/sound_click.mp3").toExternalForm());
         MediaPlayer player = new MediaPlayer(sound);
         player.setVolume(0.5f);
         player.setOnReady(player::play);
@@ -81,7 +81,7 @@ public class AppController {
     }
 
     private void playHoverSound() {
-        Media sound = new Media(getClass().getResource("media/sound_hover.mp3").toExternalForm());
+        Media sound = new Media(getClass().getResource("media/audio/sound_hover.mp3").toExternalForm());
         MediaPlayer player = new MediaPlayer(sound);
         player.setVolume(0.15f);
         player.setOnReady(player::play);
@@ -233,8 +233,54 @@ public class AppController {
     // endregion
 
     // region page_cooking
+    private Timeline timer;
+    private int secondsRemaining = 15;
+    @FXML
+    private Text textCookingTimeLeft;
+
     private void initializePageCooking() {
 
+        ChangeListener<Boolean> visibilityListener = (observable, oldValue, newValue) -> {
+            if (newValue && paneCooking.getScene() != null && paneCooking.getScene().getWindow() != null) {
+                startCookingTimer();
+            }
+        };
+
+        paneCooking.visibleProperty().addListener(visibilityListener);
+
+        if (paneCooking.isVisible() && paneCooking.getScene() != null) {
+            startCookingTimer();
+        }
+    }
+
+    private void startCookingTimer() {
+        if (timer != null) {
+            timer.stop();
+        }
+
+        secondsRemaining = 15;
+        updateTimerText();
+
+        timer = new Timeline(
+                new KeyFrame(Duration.seconds(1), event -> {
+                    secondsRemaining--;
+                    if (secondsRemaining >= 0) {
+                        updateTimerText();
+                    } else {
+                        timer.stop();
+                        textCookingTimeLeft.setText("Done!");
+                        // show the next page
+                    }
+                })
+        );
+        timer.setCycleCount(secondsRemaining + 1);
+        timer.play();
+    }
+
+    private void updateTimerText() {
+        int minutes = secondsRemaining / 60;
+        int seconds = secondsRemaining % 60;
+        textCookingTimeLeft.setText(String.format("%d:%02d", minutes, seconds));
     }
     // endregion
 }
