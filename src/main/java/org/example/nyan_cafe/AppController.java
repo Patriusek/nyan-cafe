@@ -13,41 +13,11 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+public class AppController {
 
-public class NyanController {
-    public ImageView buttonImage;
-
-    public ImageView snail;
-
-    @FXML
-    private Button joinButton;
-    @FXML
-    private Button closeButton;
-    @FXML
-    private Button minimizeButton;
-
-    private MediaPlayer clickSoundPlayer;
-
-    @FXML
-    protected void onJoinButtonClick() {
-        playClickSound();
-    }
-
-    @FXML
-    private void onMinimizeButtonClick(ActionEvent event) {
-        playClickSound();
-        Stage stage = (Stage) minimizeButton.getScene().getWindow();
-        stage.setIconified(true);
-    }
-
-    @FXML
-    private void onCloseButtonClick(ActionEvent event) {
-        playClickSound();
-        Platform.exit();
-        System.exit(0);
-    }
-
+    // region init
     public void initialize() {
+
         try {
             String resourcePath = "click.mp3";
             java.net.URL resourceUrl = getClass().getResource(resourcePath);
@@ -69,6 +39,10 @@ public class NyanController {
         animateImageSnailMoveX(snail);
         animateImageSnailSqueezeY(snail);
     }
+    // endregion
+
+    // region shared
+    private MediaPlayer clickSoundPlayer;
 
     private void playClickSound() {
         if (clickSoundPlayer != null) {
@@ -95,6 +69,40 @@ public class NyanController {
         button.setOnMouseEntered(event -> scaleUp.playFromStart());
         button.setOnMouseExited(event -> scaleDownToNormal.playFromStart());
         button.setOnMouseClicked(event -> scaleDownOnClick.playFromStart());
+    }
+    // endregion
+
+    // region main
+    @FXML
+    private Button minimizeButton;
+    @FXML
+    private Button closeButton;
+
+    @FXML
+    private void onMinimizeButtonClick(ActionEvent event) {
+        playClickSound();
+        Stage stage = (Stage) minimizeButton.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void onCloseButtonClick(ActionEvent event) {
+        playClickSound();
+        Platform.exit();
+        System.exit(0);
+    }
+    // endregion
+
+    // region page_0
+    @FXML
+    private ImageView snail;
+
+    @FXML
+    private Button joinButton;
+
+    @FXML
+    protected void onJoinButtonClick() {
+        playClickSound();
     }
 
     private void animateImageSnailMoveX(ImageView imageView) {
@@ -128,4 +136,6 @@ public class NyanController {
         squeezeY.setCycleCount(ScaleTransition.INDEFINITE);
         squeezeY.play();
     }
+
+    //endregion
 }
