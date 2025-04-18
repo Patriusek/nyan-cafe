@@ -17,6 +17,7 @@ public class NyanCafe extends Application {
 
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT);
+        scene.getStylesheets().add(getClass().getResource("css/styles.css").toExternalForm());
 
         makeWindowDraggable(scene, stage);
 
