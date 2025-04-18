@@ -8,14 +8,25 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class AppController {
+import java.util.ArrayList;
 
-    // region init
+public class AppController {
+    // region shared
+    @FXML
+    private Pane paneStart;
+    @FXML
+    private Pane paneOptions;
+
+    private ArrayList<Pane> panes;
+
+    private MediaPlayer clickSoundPlayer;
+
     public void initialize() {
 
         try {
@@ -33,16 +44,19 @@ public class AppController {
             e.printStackTrace();
         }
 
+        panes = new ArrayList<>();
+        panes.add(paneStart);
+        panes.add(paneOptions);
+
+        initializePageStart();
+        initializePageOptions();
+
         setupButtonAnimations(joinButton);
         setupButtonAnimations(closeButton);
         setupButtonAnimations(minimizeButton);
-        animateImageSnailMoveX(snail);
-        animateImageSnailSqueezeY(snail);
-    }
-    // endregion
 
-    // region shared
-    private MediaPlayer clickSoundPlayer;
+        switchPage(Page.Start);
+    }
 
     private void playClickSound() {
         if (clickSoundPlayer != null) {
@@ -70,6 +84,34 @@ public class AppController {
         button.setOnMouseExited(event -> scaleDownToNormal.playFromStart());
         button.setOnMouseClicked(event -> scaleDownOnClick.playFromStart());
     }
+
+    private void switchPage(Page page) {
+        switch (page)
+        {
+            case Start -> {
+                setPaneVisible(paneStart);
+            }
+            case Options -> {
+                setPaneVisible(paneOptions);
+            }
+            default -> {
+                System.err.printf("The type %s is missing case logic%n", page);
+            }
+        }
+    }
+
+    private void setPaneVisible(Pane pane)
+    {
+        for (Pane checkPane : panes) {
+            checkPane.setVisible(checkPane == pane);
+        }
+    }
+
+    private enum Page
+    {
+        Start,
+        Options,
+    }
     // endregion
 
     // region main
@@ -77,6 +119,11 @@ public class AppController {
     private Button minimizeButton;
     @FXML
     private Button closeButton;
+
+    private void initializePageStart() {
+        animateImageSnailMoveX(snail);
+        animateImageSnailSqueezeY(snail);
+    }
 
     @FXML
     private void onMinimizeButtonClick(ActionEvent event) {
@@ -93,7 +140,7 @@ public class AppController {
     }
     // endregion
 
-    // region page_0
+    // region page_start
     @FXML
     private ImageView snail;
 
@@ -103,6 +150,7 @@ public class AppController {
     @FXML
     protected void onJoinButtonClick() {
         playClickSound();
+        switchPage(Page.Options);
     }
 
     private void animateImageSnailMoveX(ImageView imageView) {
@@ -138,4 +186,10 @@ public class AppController {
     }
 
     //endregion
+
+    // region page_options
+    private void initializePageOptions() {
+
+    }
+    // endregion
 }
