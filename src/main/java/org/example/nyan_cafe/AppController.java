@@ -30,7 +30,7 @@ public class AppController {
     public void initialize() {
 
         try {
-            String resourcePath = "click.mp3";
+            String resourcePath = "sound_click.mp3";
             java.net.URL resourceUrl = getClass().getResource(resourcePath);
             if (resourceUrl == null) {
                 System.err.println("Resource not found: " + resourcePath);
@@ -120,11 +120,6 @@ public class AppController {
     @FXML
     private Button closeButton;
 
-    private void initializePageStart() {
-        animateImageSnailMoveX(snail);
-        animateImageSnailSqueezeY(snail);
-    }
-
     @FXML
     private void onMinimizeButtonClick(ActionEvent event) {
         playClickSound();
@@ -151,6 +146,11 @@ public class AppController {
     protected void onJoinButtonClick() {
         playClickSound();
         switchPage(Page.Options);
+    }
+
+    private void initializePageStart() {
+        animateImageSnailMoveX(snail);
+        animateImageSnailSqueezeY(snail);
     }
 
     private void animateImageSnailMoveX(ImageView imageView) {
