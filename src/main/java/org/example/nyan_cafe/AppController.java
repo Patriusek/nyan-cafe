@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
@@ -40,6 +41,14 @@ public class AppController {
     private Pane paneSecondary;
     @FXML
     private Pane paneDisgust;
+    @FXML
+    private Pane paneQuestion;
+    @FXML
+    private Pane paneSadCreeper;
+    @FXML
+    private Pane paneUgh;
+    @FXML
+    private Pane paneEnjoy;
 
     private ArrayList<Pane> panes;
 
@@ -51,12 +60,18 @@ public class AppController {
         panes.add(panePrepared);
         panes.add(paneSecondary);
         panes.add(paneDisgust);
+        panes.add(paneQuestion);
+     //   panes.add(paneSadCreeper);
+     //   panes.add(paneUgh);
+        panes.add(paneEnjoy);
 
         initializePageStart();
         initializePageOptions();
         initializePageCooking();
         initializePagePrepared();
-        initializeSecondary();
+        initializePageSecondary();
+        initializePageQuestion();
+        initializePageSadCreeper();
 
         List<Button> buttons = findAllButtons(paneRoot);
         System.out.println("Found " + buttons.size() + " buttons:");
@@ -67,7 +82,6 @@ public class AppController {
 
         switchPage(Page.Start);
     }
-
 
     // Recursive method to find all buttons in a parent node
     private List<Button> findAllButtons(Parent parent) {
@@ -128,6 +142,18 @@ public class AppController {
             case Disgust -> {
                 setPaneVisible(paneDisgust);
             }
+            case Question -> {
+                setPaneVisible(paneQuestion);
+            }
+            case SadCreeper -> {
+                setPaneVisible(paneSadCreeper);
+            }
+            case Ugh -> {
+                setPaneVisible(paneUgh);
+            }
+            case Enjoy -> {
+                setPaneVisible(paneEnjoy);
+            }
             default -> {
                 System.err.printf("The type %s is missing case logic%n", page);
             }
@@ -154,7 +180,10 @@ public class AppController {
         Question,
         SadCreeper, // is not sure
 
+        //sauce
+        Ugh,
 
+        Enjoy
     }
     // endregion
 
@@ -333,7 +362,7 @@ public class AppController {
     // endregion
 
     // region page_secondary
-    private void initializeSecondary() {
+    private void initializePageSecondary() {
 
     }
 
@@ -348,13 +377,47 @@ public class AppController {
     public void onSecondary1ButtonClick()
     {
         pickedSecondaryId = 1;
+        switchPage(Page.Enjoy);
     }
     // endregion
 
     // region page_disgust
     @FXML
     public void onSorryButtonClick(ActionEvent actionEvent) {
-
+        switchPage(Page.Question);
     }
+    // endregion
+
+    // region page_question
+    @FXML
+    public void onDismissButtonClick(MouseEvent event) {
+        pickedSecondaryId = -1;
+        switchPage(Page.SadCreeper);
+    }
+
+    @FXML
+    public void onAcceptButtonClick(MouseEvent event) {
+        switchPage(Page.Enjoy);
+    }
+
+    private void initializePageQuestion() {
+    }
+    // endregion
+
+    // region page_sad_creeper
+    private void initializePageSadCreeper() {
+       /* Timeline timeline = new Timeline(new KeyFrame(
+                Duration.seconds(5),
+                event -> {
+                    switchPage(Page.Enjoy);
+                }
+        ));
+        timeline.play();*/
+    }
+
+    // endregion
+
+    // region page_enjoy
+
     // endregion
 }

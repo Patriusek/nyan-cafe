@@ -219,8 +219,8 @@
         </HBox>
     </Pane>
 
-    <!-- Page disgust -->
-    <Pane fx:id="paneDisgust" prefHeight="200.0" prefWidth="200.0">
+    <!-- Page Disgust -->
+    <Pane fx:id="paneDisgust" prefHeight="200.0" prefWidth="200.0" visible="false">
         <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
                 <Insets bottom="300.0" />
@@ -244,6 +244,103 @@
             </Button>
         </VBox>
     </Pane>
+
+    <!-- Page Question -->
+    <Pane fx:id="paneQuestion" prefHeight="200.0" prefWidth="200.0">
+        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <padding>
+                <Insets bottom="300.0" />
+            </padding>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure?" textAlignment="CENTER" wrappingWidth="400.0">
+                <font>
+                    <Font name="Pixelify Sans Regular" size="36.0" />
+                </font>
+            </Text>
+        </VBox>
+        <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
+            <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onDismissButtonClick" prefHeight="62.0" prefWidth="175.0" styleClass="stack-button" stylesheets="@css/styles.css">
+                <children>
+                      <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                          <image>
+                              <Image url="@media/page_main/button.png" />
+                          </image>
+                      </ImageView>
+                    <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Not really">
+                        <font>
+                            <Font name="Pixelify Sans Regular" size="32.0" />
+                        </font>
+                    </Text>
+                </children>
+            <HBox.margin>
+               <Insets bottom="70.0" />
+            </HBox.margin>
+            </StackPane>
+         <StackPane layoutX="247.0" layoutY="647.0" maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onAcceptButtonClick" prefHeight="62.0" prefWidth="175.0" styleClass="stack-button" stylesheets="@css/styles.css">
+            <children>
+               <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                  <image>
+                     <Image url="@media/page_main/button.png" />
+                  </image>
+               </ImageView>
+               <Text mouseTransparent="true" onMouseClicked="#onAcceptButtonClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Give me">
+                  <font>
+                     <Font name="Pixelify Sans Regular" size="32.0" />
+                  </font>
+               </Text>
+            </children>
+            <HBox.margin>
+               <Insets bottom="70.0" />
+            </HBox.margin>
+         </StackPane>
+        </HBox>
+    </Pane>
+
+    <!-- Page Enjoy -->
+
+    <Pane fx:id="paneEnjoy" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <children>
+         <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <padding>
+               <Insets bottom="300.0" />
+            </padding>
+            <children>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enjoy ( ˘▽˘)っ♨" textAlignment="CENTER" wrappingWidth="400.0">
+                  <font>
+                     <Font name="Pixelify Sans Regular" size="36.0" />
+                  </font>
+               </Text>
+            </children>
+         </VBox>
+         <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
+            <padding>
+               <Insets top="500.0" />
+            </padding>
+            <children>
+               <StackPane layoutX="234.0" layoutY="9.0" prefHeight="150.0" prefWidth="200.0">
+                  <children>
+                     <Button maxHeight="62.0" maxWidth="180.0" minHeight="62.0" minWidth="180.0" onAction="#onAcceptButtonClick" prefHeight="62.0" prefWidth="180.0" style="-fx-background-color: transparent;">
+                        <graphic>
+                           <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                              <image>
+                                 <Image url="@media/page_main/button.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank youu">
+                        <font>
+                           <Font name="Pixelify Sans Regular" size="30.0" />
+                        </font>
+                     </Text>
+                  </children>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </StackPane>
+            </children>
+         </HBox>
+      </children>
+   </Pane>
 
     <!-- Window Controls -->
     <HBox alignment="TOP_RIGHT" maxHeight="200.0" maxWidth="150.0" prefHeight="200.0" prefWidth="200.0" spacing="10.0" style="-fx-padding: 15;" StackPane.alignment="TOP_RIGHT">
