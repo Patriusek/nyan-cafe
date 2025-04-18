@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.nyan_cafe.NyanController">
+
+    <!-- Background Image -->
+    <ImageView fitHeight="700.0" fitWidth="650.0">
+        <Image url="@backgr.png" />
+    </ImageView>
+
+    <!-- Window Controls (Top-Right Corner) -->
+    <HBox alignment="TOP_RIGHT" maxHeight="200.0" maxWidth="150.0" prefHeight="200.0" prefWidth="200.0" spacing="10.0" style="-fx-padding: 15;" StackPane.alignment="TOP_RIGHT">
+        <!-- Minimize Button -->
+        <Button fx:id="minimizeButton" maxHeight="48.0" maxWidth="48.0" minHeight="48.0" minWidth="48.0" onAction="#onMinimizeButtonClick" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: transparent;" styleClass="window-control">
+            <graphic>
+                <ImageView fitHeight="48" fitWidth="48" preserveRatio="true">
+                    <Image url="@mini.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- Close Button -->
+        <Button fx:id="closeButton" maxHeight="48.0" maxWidth="48.0" minHeight="48.0" minWidth="48.0" onAction="#onCloseButtonClick" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: transparent;" styleClass="window-control">
+            <graphic>
+                <ImageView fitHeight="48" fitWidth="48" preserveRatio="true">
+                    <Image url="@close.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <StackPane.margin>
+            <Insets right="35.0" top="21.0" />
+        </StackPane.margin>
+    </HBox>
+
+    <!-- Content -->
+    <VBox alignment="CENTER" maxHeight="200.0" maxWidth="650.0" minHeight="200.0" minWidth="650.0" prefHeight="200.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;" StackPane.alignment="BOTTOM_CENTER">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+
+        <!-- Image Button -->
+        <Button fx:id="joinButton" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0" onAction="#onJoinButtonClick" prefHeight="62.0" prefWidth="145.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fx:id="buttonImage" fitHeight="62.0" fitWidth="145.0" preserveRatio="true">
+                    <Image url="@join_button.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+    </VBox>
+    <VBox maxHeight="99.0" maxWidth="254.0" minHeight="99.0" minWidth="254.0" prefHeight="99.0" prefWidth="254.0" StackPane.alignment="TOP_CENTER">
+        <children>
+            <ImageView fitHeight="99.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@starttext.png" />
+                </image></ImageView>
+        </children>
+        <StackPane.margin>
+            <Insets top="161.0" />
+        </StackPane.margin>
+    </VBox>
+   <VBox alignment="CENTER" maxHeight="200.0" maxWidth="100.0" minHeight="200.0" minWidth="100.0" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER_LEFT">
+      <StackPane.margin>
+         <Insets left="120.0" top="100.0" />
+      </StackPane.margin>
+      <children>
+         <ImageView fx:id="ulitkins" fitHeight="235.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@snail.png" />
+            </image>
+         </ImageView>
+      </children>
+   </VBox>
+</StackPane>
