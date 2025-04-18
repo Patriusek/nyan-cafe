@@ -70,7 +70,7 @@
          <Insets left="120.0" top="100.0" />
       </StackPane.margin>
       <children>
-         <ImageView fx:id="ulitkins" fitHeight="235.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="snail" fitHeight="235.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@snail.png" />
             </image>
