@@ -153,46 +153,95 @@
     </Pane>
 
     <!-- Prepared Page -->
-    <Pane fx:id="panePrepared" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0"
-          prefWidth="650.0" StackPane.alignment="CENTER">
-        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
-              prefHeight="700.0" prefWidth="650.0">
+    <Pane fx:id="panePrepared" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0" visible="false" StackPane.alignment="CENTER">
+        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
-                <Insets bottom="300.0"/>
+                <Insets bottom="300.0" />
             </padding>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your meal is done!">
                 <font>
-                    <Font name="Pixelify Sans Regular" size="36.0"/>
+                    <Font name="Pixelify Sans Regular" size="36.0" />
                 </font>
             </Text>
         </VBox>
-        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
-              prefHeight="700.0" prefWidth="650.0">
+        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
-                <Insets top="70.0"/>
+                <Insets top="70.0" />
             </padding>
             <ImageView fx:id="imagePreparedFood" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                <Image url="@media/page_options/dish_0.png"/>
+                <Image url="@media/page_options/dish_0.png" />
             </ImageView>
         </VBox>
-        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
-              prefHeight="700.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;">
-           <padding>
-               <Insets bottom="80.0" left="20.0" right="20.0" top="20.0"/>
-           </padding>
-           <children>
-               <Button fx:id="joinButton1" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0"
-                       onAction="#onJoinButtonClick" prefHeight="62.0" prefWidth="145.0"
-                       style="-fx-background-color: transparent;">
-                   <graphic>
-                       <ImageView fitHeight="62.0" fitWidth="145.0" preserveRatio="true" smooth="false">
-                           <image>
-                               <Image url="@media/page_prepared/snooze.png"/>
-                           </image>
-                       </ImageView>
-                   </graphic>
-               </Button>
-           </children>
+        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;">
+            <padding>
+                <Insets bottom="80.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <Button fx:id="buttonSnooze" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0" onAction="#onSnoozeButtonClick" prefHeight="62.0" prefWidth="145.0" style="-fx-background-color: transparent;">
+                <graphic>
+                    <ImageView fitHeight="62.0" fitWidth="145.0" preserveRatio="true" smooth="false">
+                        <Image url="@media/page_prepared/snooze.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+        </VBox>
+    </Pane>
+
+    <!-- Secondary option Page -->
+    <Pane fx:id="paneSecondary" prefHeight="200.0" prefWidth="200.0" visible="false">
+        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <padding>
+                <Insets bottom="300.0" />
+            </padding>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Do you additionally want a drink or sauce?" textAlignment="CENTER" wrappingWidth="450.0">
+                <font>
+                    <Font name="Pixelify Sans Regular" size="36.0" />
+                </font>
+            </Text>
+        </VBox>
+        <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
+            <padding>
+                <Insets bottom="100.0" />
+            </padding>
+            <Button fx:id="buttonSecondary0" alignment="CENTER" maxHeight="175.0" maxWidth="215.0" minHeight="175.0" minWidth="215.0" onAction="#onSecondary0ButtonClick" prefHeight="175.0" prefWidth="215.0" style="-fx-background-color: transparent;">
+                <graphic>
+                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true" smooth="false">
+                        <Image url="@media/page_secondary/espresso.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="buttonSecondary1" alignment="CENTER" layoutX="227.0" layoutY="434.0" maxHeight="175.0" maxWidth="215.0" minHeight="175.0" minWidth="215.0" onAction="#onSecondary1ButtonClick" prefHeight="175.0" prefWidth="215.0" style="-fx-background-color: transparent;">
+                <graphic>
+                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true" smooth="false">
+                        <Image url="@media/page_secondary/sauce.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+        </HBox>
+    </Pane>
+
+    <!-- Page disgust -->
+    <Pane fx:id="paneDisgust" prefHeight="200.0" prefWidth="200.0">
+        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <padding>
+                <Insets bottom="300.0" />
+            </padding>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ewww, how can you drink that (￣ ￣|||)" textAlignment="CENTER" wrappingWidth="400.0">
+                <font>
+                    <Font name="Pixelify Sans Regular" size="36.0" />
+                </font>
+            </Text>
+        </VBox>
+        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;">
+            <padding>
+                <Insets bottom="80.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <Button maxHeight="62.0" maxWidth="180.0" minHeight="62.0" minWidth="180.0" onAction="#onSorryButtonClick" prefHeight="62.0" prefWidth="180.0" style="-fx-background-color: transparent;">
+                <graphic>
+                    <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                        <Image url="@media/page_disgust/sorry.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
         </VBox>
     </Pane>
 

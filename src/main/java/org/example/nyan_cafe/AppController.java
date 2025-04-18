@@ -24,6 +24,7 @@ import java.util.List;
 public class AppController {
     // region shared
     private int pickedOptionId = -1;
+    private int pickedSecondaryId = -1;
 
     @FXML
     private StackPane paneRoot;
@@ -35,6 +36,10 @@ public class AppController {
     private Pane paneCooking;
     @FXML
     private Pane panePrepared;
+    @FXML
+    private Pane paneSecondary;
+    @FXML
+    private Pane paneDisgust;
 
     private ArrayList<Pane> panes;
 
@@ -44,11 +49,14 @@ public class AppController {
         panes.add(paneOptions);
         panes.add(paneCooking);
         panes.add(panePrepared);
+        panes.add(paneSecondary);
+        panes.add(paneDisgust);
 
         initializePageStart();
         initializePageOptions();
         initializePageCooking();
         initializePagePrepared();
+        initializeSecondary();
 
         List<Button> buttons = findAllButtons(paneRoot);
         System.out.println("Found " + buttons.size() + " buttons:");
@@ -114,6 +122,12 @@ public class AppController {
                 imagePreparedFood.setImage(image);
                 setPaneVisible(panePrepared);
             }
+            case Secondary -> {
+                setPaneVisible(paneSecondary);
+            }
+            case Disgust -> {
+                setPaneVisible(paneDisgust);
+            }
             default -> {
                 System.err.printf("The type %s is missing case logic%n", page);
             }
@@ -133,6 +147,14 @@ public class AppController {
         Options,
         Cooking,
         Prepared,
+        Secondary,
+
+        //espresso
+        Disgust,
+        Question,
+        SadCreeper, // is not sure
+
+
     }
     // endregion
 
@@ -304,7 +326,34 @@ public class AppController {
 
     }
 
-    private void onSnoozeButtonClick() {
+    @FXML
+    public void onSnoozeButtonClick() {
+        switchPage(Page.Secondary);
+    }
+    // endregion
+
+    // region page_secondary
+    private void initializeSecondary() {
+
+    }
+
+    @FXML
+    public void onSecondary0ButtonClick()
+    {
+        pickedSecondaryId = 0;
+        switchPage(Page.Disgust);
+    }
+
+    @FXML
+    public void onSecondary1ButtonClick()
+    {
+        pickedSecondaryId = 1;
+    }
+    // endregion
+
+    // region page_disgust
+    @FXML
+    public void onSorryButtonClick(ActionEvent actionEvent) {
 
     }
     // endregion
