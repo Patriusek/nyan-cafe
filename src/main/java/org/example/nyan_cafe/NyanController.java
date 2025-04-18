@@ -48,7 +48,6 @@ public class NyanController {
     }
 
     public void initialize() {
-        // Load the click sound with error handling
         try {
             String resourcePath = "click.mp3";
             java.net.URL resourceUrl = getClass().getResource(resourcePath);
@@ -73,7 +72,7 @@ public class NyanController {
 
     private void playClickSound() {
         if (clickSoundPlayer != null) {
-            clickSoundPlayer.stop(); // Reset to start for rapid clicks
+            clickSoundPlayer.stop();
             clickSoundPlayer.play();
         }
     }

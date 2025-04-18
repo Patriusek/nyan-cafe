@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -14,6 +15,50 @@
     <ImageView fitHeight="700.0" fitWidth="650.0">
         <Image url="@backgr.png" />
     </ImageView>
+   <Pane maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+      <children>
+      
+          <!-- Content -->
+          <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;">
+              <padding>
+                  <Insets bottom="80.0" left="20.0" right="20.0" top="20.0" />
+              </padding>
+      
+              <!-- Image Button -->
+              <Button fx:id="joinButton" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0" onAction="#onJoinButtonClick" prefHeight="62.0" prefWidth="145.0" style="-fx-background-color: transparent;">
+                  <graphic>
+                      <ImageView fx:id="buttonImage" fitHeight="62.0" fitWidth="145.0" preserveRatio="true">
+                          <Image url="@join_button.png" />
+                      </ImageView>
+                  </graphic>
+              </Button>
+          </VBox>
+          <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+              <children>
+                  <ImageView fitHeight="99.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@starttext.png" />
+                      </image>
+               </ImageView>
+              </children>
+            <padding>
+               <Insets bottom="300.0" />
+            </padding>
+          </VBox>
+         <VBox alignment="CENTER_LEFT" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <children>
+               <ImageView fx:id="snail" fitHeight="235.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@snail.png" />
+                  </image>
+               </ImageView>
+            </children>
+            <padding>
+               <Insets left="50.0" top="100.0" />
+            </padding>
+         </VBox>
+      </children>
+   </Pane>
 
     <!-- Window Controls (Top-Right Corner) -->
     <HBox alignment="TOP_RIGHT" maxHeight="200.0" maxWidth="150.0" prefHeight="200.0" prefWidth="200.0" spacing="10.0" style="-fx-padding: 15;" StackPane.alignment="TOP_RIGHT">
@@ -38,43 +83,4 @@
             <Insets right="35.0" top="21.0" />
         </StackPane.margin>
     </HBox>
-
-    <!-- Content -->
-    <VBox alignment="CENTER" maxHeight="200.0" maxWidth="650.0" minHeight="200.0" minWidth="650.0" prefHeight="200.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;" StackPane.alignment="BOTTOM_CENTER">
-        <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-        </padding>
-
-        <!-- Image Button -->
-        <Button fx:id="joinButton" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0" onAction="#onJoinButtonClick" prefHeight="62.0" prefWidth="145.0" style="-fx-background-color: transparent;">
-            <graphic>
-                <ImageView fx:id="buttonImage" fitHeight="62.0" fitWidth="145.0" preserveRatio="true">
-                    <Image url="@join_button.png" />
-                </ImageView>
-            </graphic>
-        </Button>
-    </VBox>
-    <VBox maxHeight="99.0" maxWidth="254.0" minHeight="99.0" minWidth="254.0" prefHeight="99.0" prefWidth="254.0" StackPane.alignment="TOP_CENTER">
-        <children>
-            <ImageView fitHeight="99.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@starttext.png" />
-                </image></ImageView>
-        </children>
-        <StackPane.margin>
-            <Insets top="161.0" />
-        </StackPane.margin>
-    </VBox>
-   <VBox alignment="CENTER" maxHeight="200.0" maxWidth="100.0" minHeight="200.0" minWidth="100.0" prefHeight="200.0" prefWidth="100.0" StackPane.alignment="CENTER_LEFT">
-      <StackPane.margin>
-         <Insets left="120.0" top="100.0" />
-      </StackPane.margin>
-      <children>
-         <ImageView fx:id="snail" fitHeight="235.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@snail.png" />
-            </image>
-         </ImageView>
-      </children>
-   </VBox>
 </StackPane>
