@@ -84,7 +84,7 @@
 
             <Button fx:id="buttonOption0" alignment="CENTER" maxHeight="175.0" maxWidth="215.0" minHeight="175.0" minWidth="215.0" onAction="#onOption0ButtonClick" prefHeight="175.0" prefWidth="215.0" style="-fx-background-color: transparent;">
                 <graphic>
-                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true">
+                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true" smooth="false">
                         <Image url="@media/page_options/dish_0.png" />
                     </ImageView>
                 </graphic>
@@ -92,7 +92,7 @@
 
             <Button fx:id="buttonOption1" alignment="CENTER" layoutX="60.0" layoutY="272.0" maxHeight="175.0" maxWidth="215.0" minHeight="175.0" minWidth="215.0" onAction="#onOption1ButtonClick" prefHeight="175.0" prefWidth="215.0" style="-fx-background-color: transparent;" GridPane.columnIndex="1">
                 <graphic>
-                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true">
+                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true" smooth="false">
                         <Image url="@media/page_options/dish_1.png" />
                     </ImageView>
                 </graphic>
@@ -100,7 +100,7 @@
 
             <Button fx:id="buttonOption2" alignment="CENTER" layoutX="335.0" layoutY="272.0" maxHeight="175.0" maxWidth="215.0" minHeight="175.0" minWidth="215.0" onAction="#onOption2ButtonClick" prefHeight="175.0" prefWidth="215.0" style="-fx-background-color: transparent;" GridPane.rowIndex="1">
                 <graphic>
-                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true">
+                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true" smooth="false">
                         <Image url="@media/page_options/dish_2.png" />
                     </ImageView>
                 </graphic>
@@ -108,7 +108,7 @@
 
             <Button fx:id="buttonOption3" alignment="CENTER" layoutX="60.0" layoutY="473.0" maxHeight="175.0" maxWidth="215.0" minHeight="175.0" minWidth="215.0" onAction="#onOption3ButtonClick" prefHeight="175.0" prefWidth="215.0" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                 <graphic>
-                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true">
+                    <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true" smooth="false">
                         <Image url="@media/page_options/dish_3.png" />
                     </ImageView>
                 </graphic>
@@ -117,7 +117,7 @@
     </Pane>
 
     <!-- Cooking Page -->
-    <Pane fx:id="paneCooking" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+    <Pane fx:id="paneCooking" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
         <VBox alignment="CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
                 <Insets bottom="300.0" />
@@ -126,31 +126,73 @@
                 <Image url="@media/page_cooking/header_text.png" />
             </ImageView>
         </VBox>
-        <VBox alignment="CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
-              prefHeight="700.0" prefWidth="650.0">
+        <VBox alignment="CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <ImageView fitHeight="250.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                 <VBox.margin>
-                    <Insets top="50.0"/>
+                    <Insets top="50.0" />
                 </VBox.margin>
-                <Image url="@media/page_cooking/oia_uia.gif"/>
+                <Image url="@media/page_cooking/oia_uia.gif" />
             </ImageView>
         </VBox>
-        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
-              prefHeight="700.0" prefWidth="650.0">
+        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <opaqueInsets>
-                <Insets/>
+                <Insets />
             </opaqueInsets>
             <padding>
-                <Insets bottom="50.0"/>
+                <Insets bottom="50.0" />
             </padding>
             <Text fx:id="textCookingTimeLeft" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 128;" text="3:00" textAlignment="CENTER">
                 <VBox.margin>
-                    <Insets/>
+                    <Insets />
                 </VBox.margin>
                 <font>
-                    <Font name="Pixelify Sans Regular" size="12.218181610107422"/>
+                    <Font name="Pixelify Sans Regular" size="12.218181610107422" />
                 </font>
             </Text>
+        </VBox>
+    </Pane>
+
+    <!-- Prepared Page -->
+    <Pane fx:id="panePrepared" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0"
+          prefWidth="650.0" StackPane.alignment="CENTER">
+        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
+              prefHeight="700.0" prefWidth="650.0">
+            <padding>
+                <Insets bottom="300.0"/>
+            </padding>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your meal is done!">
+                <font>
+                    <Font name="Pixelify Sans Regular" size="36.0"/>
+                </font>
+            </Text>
+        </VBox>
+        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
+              prefHeight="700.0" prefWidth="650.0">
+            <padding>
+                <Insets top="70.0"/>
+            </padding>
+            <ImageView fx:id="imagePreparedFood" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                <Image url="@media/page_options/dish_0.png"/>
+            </ImageView>
+        </VBox>
+        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0"
+              prefHeight="700.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;">
+           <padding>
+               <Insets bottom="80.0" left="20.0" right="20.0" top="20.0"/>
+           </padding>
+           <children>
+               <Button fx:id="joinButton1" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0"
+                       onAction="#onJoinButtonClick" prefHeight="62.0" prefWidth="145.0"
+                       style="-fx-background-color: transparent;">
+                   <graphic>
+                       <ImageView fitHeight="62.0" fitWidth="145.0" preserveRatio="true" smooth="false">
+                           <image>
+                               <Image url="@media/page_prepared/snooze.png"/>
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </Button>
+           </children>
         </VBox>
     </Pane>
 

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -32,6 +33,8 @@ public class AppController {
     private Pane paneOptions;
     @FXML
     private Pane paneCooking;
+    @FXML
+    private Pane panePrepared;
 
     private ArrayList<Pane> panes;
 
@@ -40,10 +43,12 @@ public class AppController {
         panes.add(paneStart);
         panes.add(paneOptions);
         panes.add(paneCooking);
+        panes.add(panePrepared);
 
         initializePageStart();
         initializePageOptions();
         initializePageCooking();
+        initializePagePrepared();
 
         List<Button> buttons = findAllButtons(paneRoot);
         System.out.println("Found " + buttons.size() + " buttons:");
@@ -54,6 +59,7 @@ public class AppController {
 
         switchPage(Page.Start);
     }
+
 
     // Recursive method to find all buttons in a parent node
     private List<Button> findAllButtons(Parent parent) {
@@ -102,6 +108,12 @@ public class AppController {
             case Cooking -> {
                 setPaneVisible(paneCooking);
             }
+            case Prepared -> {
+                String imagePath = String.format("media/page_options/dish_%d.png", pickedOptionId);
+                var image = new Image(getClass().getResource(imagePath).toExternalForm());
+                imagePreparedFood.setImage(image);
+                setPaneVisible(panePrepared);
+            }
             default -> {
                 System.err.printf("The type %s is missing case logic%n", page);
             }
@@ -120,6 +132,7 @@ public class AppController {
         Start,
         Options,
         Cooking,
+        Prepared,
     }
     // endregion
 
@@ -262,14 +275,13 @@ public class AppController {
         updateTimerText();
 
         timer = new Timeline(
-                new KeyFrame(Duration.seconds(1), event -> {
+                new KeyFrame(Duration.seconds(0.1), event -> {
                     secondsRemaining--;
                     if (secondsRemaining >= 0) {
                         updateTimerText();
                     } else {
                         timer.stop();
-                        textCookingTimeLeft.setText("Done!");
-                        // show the next page
+                        switchPage(Page.Prepared);
                     }
                 })
         );
@@ -281,6 +293,19 @@ public class AppController {
         int minutes = secondsRemaining / 60;
         int seconds = secondsRemaining % 60;
         textCookingTimeLeft.setText(String.format("%d:%02d", minutes, seconds));
+    }
+    // endregion
+
+    // region page_prepared
+    @FXML
+    private ImageView imagePreparedFood;
+
+    private void initializePagePrepared() {
+
+    }
+
+    private void onSnoozeButtonClick() {
+
     }
     // endregion
 }
