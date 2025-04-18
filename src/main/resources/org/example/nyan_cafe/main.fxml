@@ -13,7 +13,7 @@
 
     <!-- Background Image -->
     <ImageView fitHeight="700.0" fitWidth="650.0">
-        <Image url="@pg_start_img__bg.png" />
+        <Image url="@media/page_main/background.png" />
     </ImageView>
 
     <!-- Start Page -->
@@ -27,7 +27,7 @@
             <Button fx:id="joinButton" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0" onAction="#onJoinButtonClick" prefHeight="62.0" prefWidth="145.0" style="-fx-background-color: transparent;">
                 <graphic>
                     <ImageView fitHeight="62.0" fitWidth="145.0" preserveRatio="true">
-                        <Image url="@pg_start_btn__join.png" />
+                        <Image url="@media/page_start/join.png" />
                     </ImageView>
                 </graphic>
             </Button>
@@ -39,7 +39,7 @@
                 <Insets bottom="300.0" />
             </padding>
             <ImageView fitHeight="99.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@pg_start_txt__header.png" />
+                <Image url="@media/page_start/header_text.png" />
             </ImageView>
         </VBox>
 
@@ -49,7 +49,7 @@
                 <Insets left="50.0" top="100.0" />
             </padding>
             <ImageView fx:id="snail" fitHeight="235.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@pg_start_img__snail.png" />
+                <Image url="@media/page_start/snail.png" />
             </ImageView>
         </VBox>
     </Pane>
@@ -63,7 +63,7 @@
         <Button fx:id="minimizeButton" maxHeight="48.0" maxWidth="48.0" minHeight="48.0" minWidth="48.0" onAction="#onMinimizeButtonClick" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: transparent;" styleClass="window-control">
             <graphic>
                 <ImageView fitHeight="48" fitWidth="48" preserveRatio="true">
-                    <Image url="@pg_main_btn__minimize.png" />
+                    <Image url="@media/page_main/minimize.png" />
                 </ImageView>
             </graphic>
         </Button>
@@ -72,7 +72,7 @@
         <Button fx:id="closeButton" maxHeight="48.0" maxWidth="48.0" minHeight="48.0" minWidth="48.0" onAction="#onCloseButtonClick" prefHeight="48.0" prefWidth="48.0" style="-fx-background-color: transparent;" styleClass="window-control">
             <graphic>
                 <ImageView fitHeight="48" fitWidth="48" preserveRatio="true">
-                    <Image url="@pg_main_btn__close.png" />
+                    <Image url="@media/page_main/close.png" />
                 </ImageView>
             </graphic>
         </Button>

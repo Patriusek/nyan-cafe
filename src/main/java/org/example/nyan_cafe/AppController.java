@@ -30,7 +30,7 @@ public class AppController {
     public void initialize() {
 
         try {
-            String resourcePath = "sound_click.mp3";
+            String resourcePath = "media/sound_click.mp3";
             java.net.URL resourceUrl = getClass().getResource(resourcePath);
             if (resourceUrl == null) {
                 System.err.println("Resource not found: " + resourcePath);
