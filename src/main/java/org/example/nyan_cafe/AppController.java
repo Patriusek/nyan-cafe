@@ -162,7 +162,7 @@ public class AppController {
 
                 if (pickedSecondaryId != -1)
                 {
-                    imagePath = String.format("media/page_secondary/secondary_%d.png", pickedOptionId);
+                    imagePath = String.format("media/page_secondary/secondary_%d.png", pickedSecondaryId);
                     image = new Image(getClass().getResource(imagePath).toExternalForm());
 
                     imageFinalSecondaryDish.setImage(image);
