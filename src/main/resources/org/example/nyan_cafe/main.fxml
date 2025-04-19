@@ -329,7 +329,7 @@
          </StackPane>
         </HBox>
     </Pane>
-   <Pane fx:id="paneSadCreeper" prefHeight="200.0" prefWidth="200.0">
+   <Pane fx:id="paneSadCreeper" prefHeight="200.0" prefWidth="200.0" visible="false">
       <children>
          <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
@@ -343,6 +343,40 @@
                </ImageView>
             </children>
          </VBox>
+      </children>
+   </Pane>
+   <Pane fx:id="paneUgh" prefHeight="200.0" prefWidth="200.0" visible="false">
+      <children>
+         <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <children>
+               <ImageView fx:id="imagePreparedFood1" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                  <image>
+                     <Image url="@media/page_ugh/sauce.gif" />
+                  </image>
+               </ImageView>
+            </children>
+         </VBox>
+         <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
+            <children>
+               <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onUghButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
+                  <children>
+                     <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                        <image>
+                           <Image url="@media/page_main/button.png" />
+                        </image>
+                     </ImageView>
+                     <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Ugh...">
+                        <font>
+                           <Font name="Pixelify Sans Regular" size="30.0" />
+                        </font>
+                     </Text>
+                  </children>
+                  <HBox.margin>
+                     <Insets bottom="70.0" />
+                  </HBox.margin>
+               </StackPane>
+            </children>
+         </HBox>
       </children>
    </Pane>
 
@@ -364,7 +398,7 @@
          </VBox>
          <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
             <children>
-               <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onDismissButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
+               <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onCloseButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
                   <children>
                      <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
                         <image>

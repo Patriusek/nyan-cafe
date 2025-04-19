@@ -433,6 +433,11 @@ public class AppController {
     // endregion
 
     // region page_ugh
+    @FXML
+    public void onUghButtonClick() {
+        switchPage(Page.Enjoy);
+    }
+
     private void initializePageUgh() {
     }
     // endregion
