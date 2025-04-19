@@ -3,7 +3,6 @@ package org.example.nyan_cafe;
 import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -72,6 +71,7 @@ public class AppController {
         initializePageQuestion();
         initializePageSadCreeper();
         initializePageUgh();
+        initializePageEnjoy();
 
         List<Button> buttons = findAllButtons(paneRoot);
         System.out.println("Found " + buttons.size() + " buttons:");
@@ -154,6 +154,19 @@ public class AppController {
                 setPaneVisible(paneUgh);
             }
             case Enjoy -> {
+                String imagePath = String.format("media/page_options/dish_%d.png", pickedOptionId);
+                var image = new Image(getClass().getResource(imagePath).toExternalForm());
+                imageFinalMainDish.setImage(image);
+
+                imageFinalSecondaryDish.setVisible(pickedSecondaryId != -1);
+
+                if (pickedSecondaryId != -1)
+                {
+                    imagePath = String.format("media/page_secondary/secondary_%d.png", pickedOptionId);
+                    image = new Image(getClass().getResource(imagePath).toExternalForm());
+
+                    imageFinalSecondaryDish.setImage(image);
+                }
                 setPaneVisible(paneEnjoy);
             }
             default -> {
@@ -443,6 +456,12 @@ public class AppController {
     // endregion
 
     // region page_enjoy
+    @FXML
+    private ImageView imageFinalMainDish;
+    @FXML
+    private ImageView imageFinalSecondaryDish;
 
+    private void initializePageEnjoy() {
+    }
     // endregion
 }

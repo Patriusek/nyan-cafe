@@ -231,14 +231,14 @@
             <Button fx:id="buttonSecondary0" alignment="CENTER" maxHeight="175.0" maxWidth="215.0" minHeight="175.0" minWidth="215.0" onAction="#onSecondary0ButtonClick" prefHeight="175.0" prefWidth="215.0" style="-fx-background-color: transparent;">
                 <graphic>
                     <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true" smooth="false">
-                        <Image url="@media/page_secondary/espresso.png" />
+                        <Image url="@media/page_secondary/secondary_0.png" />
                     </ImageView>
                 </graphic>
             </Button>
             <Button fx:id="buttonSecondary1" alignment="CENTER" layoutX="227.0" layoutY="434.0" maxHeight="175.0" maxWidth="215.0" minHeight="175.0" minWidth="215.0" onAction="#onSecondary1ButtonClick" prefHeight="175.0" prefWidth="215.0" style="-fx-background-color: transparent;">
                 <graphic>
                     <ImageView fitHeight="175.0" fitWidth="215.0" preserveRatio="true" smooth="false">
-                        <Image url="@media/page_secondary/sauce.png" />
+                        <Image url="@media/page_secondary/secondary_1.png" />
                     </ImageView>
                 </graphic>
             </Button>
@@ -329,6 +329,8 @@
          </StackPane>
         </HBox>
     </Pane>
+
+    <!-- Page Sad Creeper -->
    <Pane fx:id="paneSadCreeper" prefHeight="200.0" prefWidth="200.0" visible="false">
       <children>
          <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
@@ -345,6 +347,8 @@
          </VBox>
       </children>
    </Pane>
+
+    <!-- Page Ugh -->
    <Pane fx:id="paneUgh" prefHeight="200.0" prefWidth="200.0" visible="false">
       <children>
          <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
@@ -382,7 +386,7 @@
 
     <!-- Page Enjoy -->
 
-    <Pane fx:id="paneEnjoy" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+    <Pane fx:id="paneEnjoy" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
       <children>
          <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
@@ -394,6 +398,30 @@
                      <Font name="Pixelify Sans Regular" size="36.0" />
                   </font>
                </Text>
+            </children>
+         </VBox>
+         <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <padding>
+               <Insets top="70.0" />
+            </padding>
+            <children>
+               <ImageView fx:id="imageFinalMainDish" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                  <image>
+                     <Image url="@media/page_options/dish_0.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </VBox>
+         <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <padding>
+               <Insets left="300.0" top="250.0" />
+            </padding>
+            <children>
+               <ImageView fx:id="imageFinalSecondaryDish" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                  <image>
+                     <Image url="@media/page_secondary/secondary_0.png" />
+                  </image>
+               </ImageView>
             </children>
          </VBox>
          <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
