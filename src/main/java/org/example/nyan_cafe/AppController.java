@@ -116,9 +116,13 @@ public class AppController {
     }
 
     private void playSoundOneShot(String path, double volume) {
-        AudioClip sound = new AudioClip(new File(path).toURI().toString());
-        sound.setVolume(volume);
-        sound.play();
+        try {
+            AudioClip sound = new AudioClip(getClass().getResource(path).toExternalForm());
+            sound.setVolume(volume);
+            sound.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
       /*
         Media sound = new Media(new File(path).toURI().toString());
         MediaPlayer player = new MediaPlayer(sound);

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="paneRoot" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.nyan_cafe.AppController">
+<StackPane fx:id="paneRoot" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.nyan_cafe.AppController">
 
     <!-- Background Image -->
     <ImageView fitHeight="700.0" fitWidth="650.0">
