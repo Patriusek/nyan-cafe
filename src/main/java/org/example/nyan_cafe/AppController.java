@@ -76,8 +76,8 @@ public class AppController {
         List<Button> buttons = findAllButtons(paneRoot);
         System.out.println("Found " + buttons.size() + " buttons:");
         for (Button btn : buttons) {
-            btn.setOnMouseEntered(mouseEvent -> playHoverSound());
-            btn.setOnMouseClicked(mouseEvent -> playClickSound());
+            btn.setOnMouseEntered(mouseEvent -> playSoundOneShot("media/audio/sound_hover.mp3", 0.15));
+            btn.setOnMouseClicked(mouseEvent -> playSoundOneShot("media/audio/sound_click.mp3", 0.5));
         }
 
         switchPage(Page.Start);
@@ -98,20 +98,10 @@ public class AppController {
         return buttons;
     }
 
-    private void playClickSound() {
-        Media sound = new Media(getClass().getResource("media/audio/sound_click.mp3").toExternalForm());
+    private void playSoundOneShot(String path, double volume) {
+        Media sound = new Media(getClass().getResource(path).toExternalForm());
         MediaPlayer player = new MediaPlayer(sound);
-        player.setVolume(0.5f);
-        player.setOnReady(player::play);
-
-        // Clean up after playback finishes
-        player.setOnEndOfMedia(player::dispose);
-    }
-
-    private void playHoverSound() {
-        Media sound = new Media(getClass().getResource("media/audio/sound_hover.mp3").toExternalForm());
-        MediaPlayer player = new MediaPlayer(sound);
-        player.setVolume(0.15f);
+        player.setVolume(volume);
         player.setOnReady(player::play);
 
         // Clean up after playback finishes
@@ -135,6 +125,7 @@ public class AppController {
                 var image = new Image(getClass().getResource(imagePath).toExternalForm());
                 imagePreparedFood.setImage(image);
                 setPaneVisible(panePrepared);
+                playSoundOneShot("media/audio/sound_done.mp3", 0.5);
             }
             case Secondary -> {
                 setPaneVisible(paneSecondary);
