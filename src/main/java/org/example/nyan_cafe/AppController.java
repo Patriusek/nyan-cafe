@@ -154,7 +154,7 @@ public class AppController {
                 setPaneVisible(paneUgh);
             }
             case Enjoy -> {
-                String imagePath = String.format("media/page_options/dish_%d.png", pickedOptionId);
+                String imagePath = String.format("media/page_final/dish_%d.png", pickedOptionId);
                 var image = new Image(getClass().getResource(imagePath).toExternalForm());
                 imageFinalMainDish.setImage(image);
 
@@ -162,7 +162,7 @@ public class AppController {
 
                 if (pickedSecondaryId != -1)
                 {
-                    imagePath = String.format("media/page_secondary/secondary_%d.png", pickedSecondaryId);
+                    imagePath = String.format("media/page_final/secondary_%d.png", pickedSecondaryId);
                     image = new Image(getClass().getResource(imagePath).toExternalForm());
 
                     imageFinalSecondaryDish.setImage(image);
