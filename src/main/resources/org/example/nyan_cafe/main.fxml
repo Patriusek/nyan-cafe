@@ -23,30 +23,18 @@
 
     <!-- Start Page -->
     <Pane fx:id="paneStart" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0" visible="false">
-
-        <!-- Join Button -->
-        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;">
-            <padding>
-                <Insets bottom="80.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-            <Button fx:id="joinButton" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0" onAction="#onJoinButtonClick" prefHeight="62.0" prefWidth="145.0" style="-fx-background-color: transparent;">
-                <graphic>
-                    <ImageView fitHeight="62.0" fitWidth="145.0" preserveRatio="true">
-                        <Image url="@media/page_start/join.png" />
-                    </ImageView>
-                </graphic>
-            </Button>
-        </VBox>
-
-        <!-- Welcome Text -->
-        <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
-            <padding>
-                <Insets bottom="300.0" />
-            </padding>
-            <ImageView fitHeight="99.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@media/page_start/header_text.png" />
-            </ImageView>
-        </VBox>
+      <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+         <padding>
+            <Insets bottom="309.0" />
+         </padding>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You visited my  cafe ヽ(o^ ^o)ﾉ" textAlignment="CENTER" wrappingWidth="300.0">
+               <font>
+                  <Font name="Pixelify Sans Regular" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
 
         <!-- Snail Image -->
         <VBox alignment="CENTER_LEFT" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
@@ -57,18 +45,43 @@
                 <Image url="@media/page_start/snail.png" />
             </ImageView>
         </VBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
+         <children>
+            <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onJoinButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
+               <children>
+                  <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@media/page_main/button.png" />
+                     </image>
+                  </ImageView>
+                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Join">
+                     <font>
+                        <Font name="Pixelify Sans Regular" size="30.0" />
+                     </font>
+                  </Text>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="70.0" />
+               </HBox.margin>
+            </StackPane>
+         </children>
+      </HBox>
     </Pane>
 
     <!-- Options Page -->
     <Pane fx:id="paneOptions" prefHeight="200.0" prefWidth="200.0" visible="false">
-        <VBox alignment="CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
-            <padding>
-                <Insets bottom="300.0" />
-            </padding>
-            <ImageView fitHeight="83.0" fitWidth="321.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@media/page_options/header_text.png" />
-            </ImageView>
-        </VBox>
+      <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+         <padding>
+            <Insets bottom="309.0" />
+         </padding>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="What do you want to order today?" textAlignment="CENTER" wrappingWidth="400.0">
+               <font>
+                  <Font name="Pixelify Sans Regular" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
         <GridPane alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -118,14 +131,18 @@
 
     <!-- Cooking Page -->
     <Pane fx:id="paneCooking" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
-        <VBox alignment="CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
-            <padding>
-                <Insets bottom="300.0" />
-            </padding>
-            <ImageView fitHeight="57.0" fitWidth="449.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@media/page_cooking/header_text.png" />
-            </ImageView>
-        </VBox>
+      <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+         <padding>
+            <Insets bottom="300.0" left="10.0" />
+         </padding>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your meal will be ready in..." textAlignment="CENTER">
+               <font>
+                  <Font name="Pixelify Sans Regular" size="32.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
         <VBox alignment="CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <ImageView fitHeight="250.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                 <VBox.margin>
@@ -172,18 +189,27 @@
                 <Image url="@media/page_options/dish_0.png" />
             </ImageView>
         </VBox>
-        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;">
-            <padding>
-                <Insets bottom="80.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-            <Button fx:id="buttonSnooze" maxHeight="62.0" maxWidth="145.0" minHeight="62.0" minWidth="145.0" onAction="#onSnoozeButtonClick" prefHeight="62.0" prefWidth="145.0" style="-fx-background-color: transparent;">
-                <graphic>
-                    <ImageView fitHeight="62.0" fitWidth="145.0" preserveRatio="true" smooth="false">
-                        <Image url="@media/page_prepared/snooze.png" />
-                    </ImageView>
-                </graphic>
-            </Button>
-        </VBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
+         <children>
+            <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onSnoozeButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
+               <children>
+                  <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@media/page_main/button.png" />
+                     </image>
+                  </ImageView>
+                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Snooze">
+                     <font>
+                        <Font name="Pixelify Sans Regular" size="30.0" />
+                     </font>
+                  </Text>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="70.0" />
+               </HBox.margin>
+            </StackPane>
+         </children>
+      </HBox>
     </Pane>
 
     <!-- Secondary option Page -->
@@ -192,9 +218,9 @@
             <padding>
                 <Insets bottom="300.0" />
             </padding>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Do you additionally want a drink or sauce?" textAlignment="CENTER" wrappingWidth="450.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Do you additionally want a drink or sauce?" textAlignment="CENTER" wrappingWidth="400.0">
                 <font>
-                    <Font name="Pixelify Sans Regular" size="36.0" />
+                    <Font name="Pixelify Sans Regular" size="32.0" />
                 </font>
             </Text>
         </VBox>
@@ -231,22 +257,31 @@
                 </font>
             </Text>
         </VBox>
-        <VBox alignment="BOTTOM_CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0" spacing="20.0" style="-fx-background-color: transparent;">
-            <padding>
-                <Insets bottom="80.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-            <Button maxHeight="62.0" maxWidth="180.0" minHeight="62.0" minWidth="180.0" onAction="#onSorryButtonClick" prefHeight="62.0" prefWidth="180.0" style="-fx-background-color: transparent;">
-                <graphic>
-                    <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
-                        <Image url="@media/page_disgust/sorry.png" />
-                    </ImageView>
-                </graphic>
-            </Button>
-        </VBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
+         <children>
+            <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onSorryButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
+               <children>
+                  <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@media/page_main/button.png" />
+                     </image>
+                  </ImageView>
+                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="I'm sorry">
+                     <font>
+                        <Font name="Pixelify Sans Regular" size="30.0" />
+                     </font>
+                  </Text>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="70.0" />
+               </HBox.margin>
+            </StackPane>
+         </children>
+      </HBox>
     </Pane>
 
     <!-- Page Question -->
-    <Pane fx:id="paneQuestion" prefHeight="200.0" prefWidth="200.0">
+    <Pane fx:id="paneQuestion" prefHeight="200.0" prefWidth="200.0" visible="false">
         <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
                 <Insets bottom="300.0" />
@@ -258,7 +293,7 @@
             </Text>
         </VBox>
         <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
-            <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onDismissButtonClick" prefHeight="62.0" prefWidth="175.0" styleClass="stack-button" stylesheets="@css/styles.css">
+            <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onDismissButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
                 <children>
                       <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
                           <image>
@@ -275,7 +310,7 @@
                <Insets bottom="70.0" />
             </HBox.margin>
             </StackPane>
-         <StackPane layoutX="247.0" layoutY="647.0" maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onAcceptButtonClick" prefHeight="62.0" prefWidth="175.0" styleClass="stack-button" stylesheets="@css/styles.css">
+         <StackPane layoutX="247.0" layoutY="647.0" maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onAcceptButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
             <children>
                <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
                   <image>
@@ -294,6 +329,22 @@
          </StackPane>
         </HBox>
     </Pane>
+   <Pane fx:id="paneSadCreeper" prefHeight="200.0" prefWidth="200.0">
+      <children>
+         <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
+            <padding>
+               <Insets top="70.0" />
+            </padding>
+            <children>
+               <ImageView fx:id="imageCreeper" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                  <image>
+                     <Image url="@media/page_sad_creeper/sad_creeper.gif" />
+                  </image>
+               </ImageView>
+            </children>
+         </VBox>
+      </children>
+   </Pane>
 
     <!-- Page Enjoy -->
 
@@ -312,21 +363,14 @@
             </children>
          </VBox>
          <HBox alignment="BOTTOM_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="30.0">
-            <padding>
-               <Insets top="500.0" />
-            </padding>
             <children>
-               <StackPane layoutX="234.0" layoutY="9.0" prefHeight="150.0" prefWidth="200.0">
+               <StackPane maxHeight="62.0" maxWidth="175.0" minHeight="62.0" minWidth="175.0" onMouseClicked="#onDismissButtonClick" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: transparent;" styleClass="stack-button" stylesheets="@css/styles.css">
                   <children>
-                     <Button maxHeight="62.0" maxWidth="180.0" minHeight="62.0" minWidth="180.0" onAction="#onAcceptButtonClick" prefHeight="62.0" prefWidth="180.0" style="-fx-background-color: transparent;">
-                        <graphic>
-                           <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
-                              <image>
-                                 <Image url="@media/page_main/button.png" />
-                              </image>
-                           </ImageView>
-                        </graphic>
-                     </Button>
+                     <ImageView fitHeight="62.0" fitWidth="180.0" preserveRatio="true" smooth="false">
+                        <image>
+                           <Image url="@media/page_main/button.png" />
+                        </image>
+                     </ImageView>
                      <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank youu">
                         <font>
                            <Font name="Pixelify Sans Regular" size="30.0" />
@@ -334,7 +378,7 @@
                      </Text>
                   </children>
                   <HBox.margin>
-                     <Insets />
+                     <Insets bottom="70.0" />
                   </HBox.margin>
                </StackPane>
             </children>

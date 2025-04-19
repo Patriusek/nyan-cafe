@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
@@ -61,7 +60,7 @@ public class AppController {
         panes.add(paneSecondary);
         panes.add(paneDisgust);
         panes.add(paneQuestion);
-     //   panes.add(paneSadCreeper);
+        panes.add(paneSadCreeper);
      //   panes.add(paneUgh);
         panes.add(paneEnjoy);
 
@@ -147,6 +146,8 @@ public class AppController {
             }
             case SadCreeper -> {
                 setPaneVisible(paneSadCreeper);
+                restartCreeperGifAnim();
+                showEnjoyPageDelayed();
             }
             case Ugh -> {
                 setPaneVisible(paneUgh);
@@ -192,13 +193,13 @@ public class AppController {
     private Button minimizeButton;
 
     @FXML
-    private void onMinimizeButtonClick(ActionEvent event) {
+    private void onMinimizeButtonClick() {
         Stage stage = (Stage) minimizeButton.getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
-    private void onCloseButtonClick(ActionEvent event) {
+    private void onCloseButtonClick() {
         Platform.exit();
         System.exit(0);
     }
@@ -383,20 +384,20 @@ public class AppController {
 
     // region page_disgust
     @FXML
-    public void onSorryButtonClick(ActionEvent actionEvent) {
+    public void onSorryButtonClick() {
         switchPage(Page.Question);
     }
     // endregion
 
     // region page_question
     @FXML
-    public void onDismissButtonClick(MouseEvent event) {
+    public void onDismissButtonClick() {
         pickedSecondaryId = -1;
         switchPage(Page.SadCreeper);
     }
 
     @FXML
-    public void onAcceptButtonClick(MouseEvent event) {
+    public void onAcceptButtonClick() {
         switchPage(Page.Enjoy);
     }
 
@@ -405,14 +406,27 @@ public class AppController {
     // endregion
 
     // region page_sad_creeper
+    @FXML
+    private ImageView imageCreeper;
+
     private void initializePageSadCreeper() {
-       /* Timeline timeline = new Timeline(new KeyFrame(
-                Duration.seconds(5),
+    }
+
+    private void restartCreeperGifAnim()
+    {
+        imageCreeper.setImage(new Image(getClass().getResource("media/page_sad_creeper/sad_creeper.gif").toExternalForm()));
+    }
+
+    private void showEnjoyPageDelayed()
+    {
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.seconds(6),
                 event -> {
-                    switchPage(Page.Enjoy);
+                    Platform.exit();
+                    System.exit(0);
                 }
         ));
-        timeline.play();*/
+        timeline.play();
     }
 
     // endregion
