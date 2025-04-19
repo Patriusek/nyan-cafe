@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
@@ -73,29 +74,43 @@ public class AppController {
         initializePageUgh();
         initializePageEnjoy();
 
-        List<Button> buttons = findAllButtons(paneRoot);
-        System.out.println("Found " + buttons.size() + " buttons:");
+        List<Button> buttons = findAllNodes(paneRoot, Button.class);
+
         for (Button btn : buttons) {
-            btn.setOnMouseEntered(mouseEvent -> playSoundOneShot("media/audio/sound_hover.mp3", 0.15));
-            btn.setOnMouseClicked(mouseEvent -> playSoundOneShot("media/audio/sound_click.mp3", 0.5));
+            btn.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+                playSoundOneShot("media/audio/sound_click.mp3", 0.5);
+            });
+            btn.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
+                playSoundOneShot("media/audio/sound_hover.mp3", 0.15);
+            });
+        }
+
+        List<StackPane> stackPanes = findAllNodes(paneRoot, StackPane.class);
+
+        for (StackPane stackPane : stackPanes) {
+            stackPane.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+                playSoundOneShot("media/audio/sound_click.mp3", 0.5);
+            });
+            stackPane.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
+                playSoundOneShot("media/audio/sound_hover.mp3", 0.15);
+            });
         }
 
         switchPage(Page.Start);
     }
 
-    // Recursive method to find all buttons in a parent node
-    private List<Button> findAllButtons(Parent parent) {
-        List<Button> buttons = new ArrayList<>();
+    private <T extends Node> List<T> findAllNodes(Parent parent, Class<T> nodeType) {
+        List<T> nodes = new ArrayList<>();
 
         for (Node node : parent.getChildrenUnmodifiable()) {
-            if (node instanceof Button) {
-                buttons.add((Button) node);
+            if (nodeType.isInstance(node)) {
+                nodes.add(nodeType.cast(node));
             }
             if (node instanceof Parent) {
-                buttons.addAll(findAllButtons((Parent) node));
+                nodes.addAll(findAllNodes((Parent) node, nodeType));
             }
         }
-        return buttons;
+        return nodes;
     }
 
     private void playSoundOneShot(String path, double volume) {
@@ -125,7 +140,6 @@ public class AppController {
                 var image = new Image(getClass().getResource(imagePath).toExternalForm());
                 imagePreparedFood.setImage(image);
                 setPaneVisible(panePrepared);
-                playSoundOneShot("media/audio/sound_done.mp3", 0.5);
             }
             case Secondary -> {
                 setPaneVisible(paneSecondary);
@@ -140,6 +154,7 @@ public class AppController {
                 setPaneVisible(paneSadCreeper);
                 restartCreeperGifAnim();
                 showEnjoyPageDelayed();
+                playCreeperSoundDelayed();
             }
             case Ugh -> {
                 setPaneVisible(paneUgh);
@@ -338,6 +353,7 @@ public class AppController {
                         updateTimerText();
                     } else {
                         timer.stop();
+                        playSoundOneShot("media/audio/sound_done.mp3", 0.5);
                         switchPage(Page.Prepared);
                     }
                 })
@@ -429,6 +445,17 @@ public class AppController {
                 event -> {
                     Platform.exit();
                     System.exit(0);
+                }
+        ));
+        timeline.play();
+    }
+
+    private void playCreeperSoundDelayed()
+    {
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.seconds(4.9),
+                event -> {
+                    playSoundOneShot("media/audio/sound_creeper.mp3", 0.5f);
                 }
         ));
         timeline.play();
