@@ -12,12 +12,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,70 +116,73 @@ public class AppController {
     }
 
     private void playSoundOneShot(String path, double volume) {
-        Media sound = new Media(getClass().getResource(path).toExternalForm());
+        AudioClip sound = new AudioClip(new File(path).toURI().toString());
+        sound.setVolume(volume);
+        sound.play();
+      /*
+        Media sound = new Media(new File(path).toURI().toString());
         MediaPlayer player = new MediaPlayer(sound);
         player.setVolume(volume);
         player.setOnReady(player::play);
 
         // Clean up after playback finishes
-        player.setOnEndOfMedia(player::dispose);
+        player.setOnEndOfMedia(player::dispose);*/
     }
 
     private void switchPage(Page page) {
         switch (page)
         {
-            case Start -> {
+            case Start:
                 setPaneVisible(paneStart);
-            }
-            case Options -> {
+                break;
+            case Options:
                 setPaneVisible(paneOptions);
-            }
-            case Cooking -> {
+                break;
+            case Cooking:
                 setPaneVisible(paneCooking);
-            }
-            case Prepared -> {
-                String imagePath = String.format("media/page_options/dish_%d.png", pickedOptionId);
-                var image = new Image(getClass().getResource(imagePath).toExternalForm());
+                break;
+            case Prepared:
+                String imagePath = "media/page_options/dish_" + pickedOptionId + ".png";
+                Image image = new Image(getClass().getResource(imagePath).toExternalForm());
                 imagePreparedFood.setImage(image);
                 setPaneVisible(panePrepared);
-            }
-            case Secondary -> {
+                break;
+            case Secondary:
                 setPaneVisible(paneSecondary);
-            }
-            case Disgust -> {
+                break;
+        case Disgust:
                 setPaneVisible(paneDisgust);
-            }
-            case Question -> {
+                break;
+            case Question:
                 setPaneVisible(paneQuestion);
-            }
-            case SadCreeper -> {
+                break;
+            case SadCreeper:
                 setPaneVisible(paneSadCreeper);
                 restartCreeperGifAnim();
                 showEnjoyPageDelayed();
                 playCreeperSoundDelayed();
-            }
-            case Ugh -> {
+                break;
+            case Ugh:
                 setPaneVisible(paneUgh);
-            }
-            case Enjoy -> {
-                String imagePath = String.format("media/page_final/dish_%d.png", pickedOptionId);
-                var image = new Image(getClass().getResource(imagePath).toExternalForm());
+                break;
+            case Enjoy:
+                imagePath = "media/page_final/dish_" + pickedOptionId + ".png";
+                image = new Image(getClass().getResource(imagePath).toExternalForm());
                 imageFinalMainDish.setImage(image);
 
                 imageFinalSecondaryDish.setVisible(pickedSecondaryId != -1);
 
                 if (pickedSecondaryId != -1)
                 {
-                    imagePath = String.format("media/page_final/secondary_%d.png", pickedSecondaryId);
+                    imagePath = "media/page_final/secondary_" + pickedSecondaryId + ".png";
                     image = new Image(getClass().getResource(imagePath).toExternalForm());
 
                     imageFinalSecondaryDish.setImage(image);
                 }
                 setPaneVisible(paneEnjoy);
-            }
-            default -> {
+                break;
+            default:
                 System.err.printf("The type %s is missing case logic%n", page);
-            }
         }
     }
 
@@ -365,7 +370,7 @@ public class AppController {
     private void updateTimerText() {
         int minutes = secondsRemaining / 60;
         int seconds = secondsRemaining % 60;
-        textCookingTimeLeft.setText(String.format("%d:%02d", minutes, seconds));
+        textCookingTimeLeft.setText(minutes + ":" + seconds);
     }
     // endregion
 
