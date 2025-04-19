@@ -61,7 +61,7 @@ public class AppController {
         panes.add(paneDisgust);
         panes.add(paneQuestion);
         panes.add(paneSadCreeper);
-     //   panes.add(paneUgh);
+        panes.add(paneUgh);
         panes.add(paneEnjoy);
 
         initializePageStart();
@@ -71,6 +71,7 @@ public class AppController {
         initializePageSecondary();
         initializePageQuestion();
         initializePageSadCreeper();
+        initializePageUgh();
 
         List<Button> buttons = findAllButtons(paneRoot);
         System.out.println("Found " + buttons.size() + " buttons:");
@@ -378,7 +379,7 @@ public class AppController {
     public void onSecondary1ButtonClick()
     {
         pickedSecondaryId = 1;
-        switchPage(Page.Enjoy);
+        switchPage(Page.Ugh);
     }
     // endregion
 
@@ -429,6 +430,11 @@ public class AppController {
         timeline.play();
     }
 
+    // endregion
+
+    // region page_ugh
+    private void initializePageUgh() {
+    }
     // endregion
 
     // region page_enjoy
