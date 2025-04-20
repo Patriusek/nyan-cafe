@@ -130,6 +130,17 @@ public class AppController {
         }
     }
 
+    private void playSoundLooped(String path, double volume) {
+        try {
+            AudioClip sound = new AudioClip(getClass().getResource(path).toExternalForm());
+            sound.setCycleCount(-1);
+            sound.setVolume(volume);
+            sound.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void switchPage(Page page) {
         switch (page)
         {
@@ -141,6 +152,8 @@ public class AppController {
                 break;
             case Cooking:
                 setPaneVisible(paneCooking);
+                restartSpinningCatGifAnim();
+                playSoundOneShot("media/audio/sound_spinning_cat.mp3", 0.25);
                 break;
             case Prepared:
                 String imagePath = "media/page_options/dish_" + pickedOptionId + ".png";
@@ -151,7 +164,7 @@ public class AppController {
             case Secondary:
                 setPaneVisible(paneSecondary);
                 break;
-        case Disgust:
+            case Disgust:
                 setPaneVisible(paneDisgust);
                 break;
             case Question:
@@ -181,6 +194,7 @@ public class AppController {
                     imageFinalSecondaryDish.setImage(image);
                 }
                 setPaneVisible(paneEnjoy);
+                playSoundLooped("media/audio/sound_final.mp3", 0.25);
                 break;
             default:
                 System.err.printf("The type %s is missing case logic%n", page);
@@ -324,10 +338,13 @@ public class AppController {
     // endregion
 
     // region page_cooking
+
     private Timeline timer;
     private int secondsRemaining = 15;
     @FXML
     private Text textCookingTimeLeft;
+    @FXML
+    private ImageView imageSpinningCat;
 
     private void initializePageCooking() {
 
@@ -353,7 +370,7 @@ public class AppController {
         updateTimerText();
 
         timer = new Timeline(
-                new KeyFrame(Duration.seconds(0.1), event -> {
+                new KeyFrame(Duration.seconds(0.53), event -> {
                     secondsRemaining--;
                     if (secondsRemaining >= 0) {
                         updateTimerText();
@@ -372,6 +389,11 @@ public class AppController {
         int minutes = secondsRemaining / 60;
         int seconds = secondsRemaining % 60;
         textCookingTimeLeft.setText(minutes + ":" + seconds);
+    }
+
+    private void restartSpinningCatGifAnim()
+    {
+        imageSpinningCat.setImage(new Image(getClass().getResource("media/page_cooking/oia_uia.gif").toExternalForm()));
     }
     // endregion
 

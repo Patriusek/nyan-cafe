@@ -144,7 +144,7 @@
          </children>
       </VBox>
         <VBox alignment="CENTER" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
-            <ImageView fitHeight="250.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageSpinningCat" fitHeight="250.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                 <VBox.margin>
                     <Insets top="50.0" />
                 </VBox.margin>
@@ -402,24 +402,24 @@
          </VBox>
          <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
-               <Insets top="70.0" />
+               <Insets left="300.0" />
             </padding>
             <children>
-               <ImageView fx:id="imageFinalMainDish" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <ImageView fx:id="imageFinalSecondaryDish" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                   <image>
-                     <Image url="@media/page_options/dish_0.png" />
+                     <Image url="@media/page_final/secondary_1.png" />
                   </image>
                </ImageView>
             </children>
          </VBox>
          <VBox alignment="CENTER" disable="true" maxHeight="700.0" maxWidth="650.0" minHeight="700.0" minWidth="650.0" prefHeight="700.0" prefWidth="650.0">
             <padding>
-               <Insets left="300.0" top="250.0" />
+               <Insets top="120.0" />
             </padding>
             <children>
-               <ImageView fx:id="imageFinalSecondaryDish" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <ImageView fx:id="imageFinalMainDish" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                   <image>
-                     <Image url="@media/page_secondary/secondary_0.png" />
+                     <Image url="@media/page_final/dish_0.png" />
                   </image>
                </ImageView>
             </children>
