@@ -194,7 +194,7 @@ public class AppController {
                     imageFinalSecondaryDish.setImage(image);
                 }
                 setPaneVisible(paneEnjoy);
-                playSoundLooped("media/audio/sound_final.mp3", 0.25);
+                playSoundLooped("media/audio/sound_final.mp3", 0.6);
                 break;
             default:
                 System.err.printf("The type %s is missing case logic%n", page);
@@ -388,7 +388,7 @@ public class AppController {
     private void updateTimerText() {
         int minutes = secondsRemaining / 60;
         int seconds = secondsRemaining % 60;
-        textCookingTimeLeft.setText(minutes + ":" + seconds);
+        textCookingTimeLeft.setText(String.format("%d:%02d", minutes, seconds));
     }
 
     private void restartSpinningCatGifAnim()
