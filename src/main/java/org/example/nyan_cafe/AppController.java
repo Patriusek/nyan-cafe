@@ -15,6 +15,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -98,6 +99,10 @@ public class AppController {
             });
         }
 
+
+        Font font = Font.loadFont(getClass().getResource("media/fonts/pixelify_sans.ttf").toExternalForm(), 32);
+        System.out.println("Font loaded: " + (font != null ? font.getName() : "null"));
+
         switchPage(Page.Start);
     }
 
@@ -123,14 +128,6 @@ public class AppController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-      /*
-        Media sound = new Media(new File(path).toURI().toString());
-        MediaPlayer player = new MediaPlayer(sound);
-        player.setVolume(volume);
-        player.setOnReady(player::play);
-
-        // Clean up after playback finishes
-        player.setOnEndOfMedia(player::dispose);*/
     }
 
     private void switchPage(Page page) {
@@ -408,14 +405,14 @@ public class AppController {
     public void onSecondary1ButtonClick()
     {
         pickedSecondaryId = 1;
-        switchPage(Page.Ugh);
+        switchPage(Page.Question);
     }
     // endregion
 
     // region page_disgust
     @FXML
     public void onSorryButtonClick() {
-        switchPage(Page.Question);
+        switchPage(Page.Enjoy);
     }
     // endregion
 
@@ -428,7 +425,7 @@ public class AppController {
 
     @FXML
     public void onAcceptButtonClick() {
-        switchPage(Page.Enjoy);
+        switchPage(Page.Ugh);
     }
 
     private void initializePageQuestion() {

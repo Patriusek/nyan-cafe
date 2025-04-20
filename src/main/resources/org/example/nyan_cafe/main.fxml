@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane fx:id="paneRoot" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.nyan_cafe.AppController">
+<StackPane fx:id="paneRoot" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.nyan_cafe.AppController">
 
     <!-- Background Image -->
     <ImageView fitHeight="700.0" fitWidth="650.0">
@@ -28,7 +28,7 @@
             <Insets bottom="309.0" />
          </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You visited my  cafe ヽ(o^ ^o)ﾉ" textAlignment="CENTER" wrappingWidth="300.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans';" text="You visited my  cafe ヽ(o^ ^o)ﾉ" textAlignment="CENTER" wrappingWidth="300.0">
                <font>
                   <Font name="Pixelify Sans Regular" size="36.0" />
                </font>
@@ -54,7 +54,7 @@
                         <Image url="@media/page_main/button.png" />
                      </image>
                   </ImageView>
-                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Join">
+                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans'; -fx-font-size: 30;" text="Join">
                      <font>
                         <Font name="Pixelify Sans Regular" size="30.0" />
                      </font>
@@ -75,7 +75,7 @@
             <Insets bottom="309.0" />
          </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="What do you want to order today?" textAlignment="CENTER" wrappingWidth="400.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans';" text="What do you want to order today?" textAlignment="CENTER" wrappingWidth="400.0">
                <font>
                   <Font name="Pixelify Sans Regular" size="36.0" />
                </font>
@@ -136,7 +136,7 @@
             <Insets bottom="300.0" left="10.0" />
          </padding>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your meal will be ready in..." textAlignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans';" text="Your meal will be ready in..." textAlignment="CENTER">
                <font>
                   <Font name="Pixelify Sans Regular" size="32.0" />
                </font>
@@ -158,7 +158,7 @@
             <padding>
                 <Insets bottom="50.0" />
             </padding>
-            <Text fx:id="textCookingTimeLeft" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 128;" text="3:00" textAlignment="CENTER">
+            <Text fx:id="textCookingTimeLeft" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 128; -fx-font-family: 'Pixelify Sans';" text="3:00" textAlignment="CENTER">
                 <VBox.margin>
                     <Insets />
                 </VBox.margin>
@@ -175,7 +175,7 @@
             <padding>
                 <Insets bottom="300.0" />
             </padding>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your meal is done!">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans';" text="Your meal is done!">
                 <font>
                     <Font name="Pixelify Sans Regular" size="36.0" />
                 </font>
@@ -198,7 +198,7 @@
                         <Image url="@media/page_main/button.png" />
                      </image>
                   </ImageView>
-                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Snooze">
+                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans'; -fx-font-size: 30;" text="Snooze">
                      <font>
                         <Font name="Pixelify Sans Regular" size="30.0" />
                      </font>
@@ -218,7 +218,7 @@
             <padding>
                 <Insets bottom="300.0" />
             </padding>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Do you additionally want a drink or sauce?" textAlignment="CENTER" wrappingWidth="400.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans';" text="Do you additionally want a drink or sauce?" textAlignment="CENTER" wrappingWidth="400.0">
                 <font>
                     <Font name="Pixelify Sans Regular" size="32.0" />
                 </font>
@@ -251,7 +251,7 @@
             <padding>
                 <Insets bottom="300.0" />
             </padding>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ewww, how can you drink that (￣ ￣|||)" textAlignment="CENTER" wrappingWidth="400.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans';" text="Ewww, how can you drink that (￣ ￣|||)" textAlignment="CENTER" wrappingWidth="400.0">
                 <font>
                     <Font name="Pixelify Sans Regular" size="36.0" />
                 </font>
@@ -266,7 +266,7 @@
                         <Image url="@media/page_main/button.png" />
                      </image>
                   </ImageView>
-                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="I'm sorry">
+                  <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans'; -fx-font-size: 30;" text="I'm sorry">
                      <font>
                         <Font name="Pixelify Sans Regular" size="30.0" />
                      </font>
@@ -286,7 +286,7 @@
             <padding>
                 <Insets bottom="300.0" />
             </padding>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure?" textAlignment="CENTER" wrappingWidth="400.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans';" text="Are you sure?" textAlignment="CENTER" wrappingWidth="400.0">
                 <font>
                     <Font name="Pixelify Sans Regular" size="36.0" />
                 </font>
@@ -300,7 +300,7 @@
                               <Image url="@media/page_main/button.png" />
                           </image>
                       </ImageView>
-                    <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Not really">
+                    <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans'; -fx-font-size: 30;" text="Not really">
                         <font>
                             <Font name="Pixelify Sans Regular" size="32.0" />
                         </font>
@@ -317,7 +317,7 @@
                      <Image url="@media/page_main/button.png" />
                   </image>
                </ImageView>
-               <Text mouseTransparent="true" onMouseClicked="#onAcceptButtonClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Give me">
+               <Text mouseTransparent="true" onMouseClicked="#onAcceptButtonClick" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans'; -fx-font-size: 30;" text="Give me">
                   <font>
                      <Font name="Pixelify Sans Regular" size="32.0" />
                   </font>
@@ -369,7 +369,7 @@
                            <Image url="@media/page_main/button.png" />
                         </image>
                      </ImageView>
-                     <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Ugh...">
+                     <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans'; -fx-font-size: 30;" text="Ugh...">
                         <font>
                            <Font name="Pixelify Sans Regular" size="30.0" />
                         </font>
@@ -393,7 +393,7 @@
                <Insets bottom="300.0" />
             </padding>
             <children>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enjoy ( ˘▽˘)っ♨" textAlignment="CENTER" wrappingWidth="400.0">
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans';" text="Enjoy ( ˘▽˘)っ♨" textAlignment="CENTER" wrappingWidth="400.0">
                   <font>
                      <Font name="Pixelify Sans Regular" size="36.0" />
                   </font>
@@ -433,7 +433,7 @@
                            <Image url="@media/page_main/button.png" />
                         </image>
                      </ImageView>
-                     <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank youu">
+                     <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Pixelify Sans'; -fx-font-size: 30;" text="Thank youu">
                         <font>
                            <Font name="Pixelify Sans Regular" size="30.0" />
                         </font>

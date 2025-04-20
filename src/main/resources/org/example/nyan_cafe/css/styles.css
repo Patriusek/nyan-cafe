@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'Pixelify Sans';
+    src: url('../media/fonts/pixelify_sans.ttf');
+}
+
+.text {
+    -fx-font-family: 'Pixelify Sans';
+}
+
 .button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
-    -fx-font-size: 14px;
     /* Base scale */
     -fx-scale-x: 1;
     -fx-scale-y: 1;
